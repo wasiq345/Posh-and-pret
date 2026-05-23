@@ -9,6 +9,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Shirt & Banarsi Shahi Patiala (Muted Green)',
     description: 'Chiffon Shirt & Banarsi Shahi Patiala with golden lace work',
     price: 2500,
+    priceLarge: 3000,
     tag: 'Bestseller',
   },
   {
@@ -18,6 +19,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Muted Peach)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 3200,
+    priceLarge: 3800,
     tag: 'New',
   },
   {
@@ -27,6 +29,7 @@ const PRODUCTS = [
     fullName: 'Soft RawSilk Lehnga Choli',
     description: 'Soft RawSilk lenga choli with golden gota mirror embroidery along with fancy lace',
     price: 1500,
+    priceLarge: 2500,
     tag: '',
   },
   {
@@ -36,6 +39,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Navy Blue)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 2800,
+    priceLarge: 3200,
     tag: '',
   },
   {
@@ -45,6 +49,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Fuchsia Pink)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 3500,
+    priceLarge: 4000,
     tag: 'Popular',
   },
 ];
@@ -93,7 +98,12 @@ export default function Products({ onAddToCart }) {
   const [modalProduct, setModalProduct] = useState(null);
   const [selectedImg, setSelectedImg] = useState(0);
   const [size, setSize] = useState('');
-  const [sizeError, setSizeError] = useState(false);
+const [sizeError, setSizeError] = useState(false);
+
+const largerSizes = ['28', '30', '32'];
+const activePrice = size && largerSizes.includes(size)
+  ? modalProduct?.priceLarge
+  : modalProduct?.price;
 
   const openModal = (product) => {
     setModalProduct(product);
@@ -107,10 +117,10 @@ export default function Products({ onAddToCart }) {
   };
 
   const handleAddToCart = () => {
-    if (!size) { setSizeError(true); return; }
-    onAddToCart(modalProduct, size);
-    closeModal();
-  };
+  if (!size) { setSizeError(true); return; }
+  onAddToCart({ ...modalProduct, price: activePrice }, size);
+  closeModal();
+};
 
   // Close on Escape
   useEffect(() => {
@@ -176,7 +186,14 @@ export default function Products({ onAddToCart }) {
 
               <div className="modal-details">
                 <h2 className="modal-title">{modalProduct.fullName}</h2>
-                <p className="modal-price">PKR {modalProduct.price.toLocaleString()}</p>
+                <p className="modal-price">
+                  PKR {(activePrice || modalProduct.price).toLocaleString()}
+                  {size && largerSizes.includes(size) && (
+                    <span style={{ fontSize: '0.75rem', color: 'var(--muted)', marginLeft: '0.5rem' }}>
+                      (Size 28–32)
+                    </span>
+                  )}
+                </p>
                 <p className="modal-desc">{modalProduct.description}</p>
 
                 <div className="modal-size-section">
