@@ -1,0 +1,72 @@
+/* ============================================
+   GLOBAL RESET & CSS VARIABLES
+   ============================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #faf8f5;
+  --warm-white: #fefcf9;
+  --blush: #f0ebe4;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --gold-dark: #a07840;
+  --ink: #1c1612;
+  --ink-soft: #3d3530;
+  --muted: #8a7e74;
+  --border: rgba(201, 169, 110, 0.2);
+  --border-strong: rgba(201, 169, 110, 0.4);
+  --shadow-soft: 0 4px 30px rgba(28, 22, 18, 0.06);
+  --shadow-medium: 0 12px 50px rgba(28, 22, 18, 0.1);
+  --shadow-strong: 0 24px 80px rgba(28, 22, 18, 0.15);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', -apple-system, sans-serif;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--warm-white);
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-light);
+  border-radius: 999px;
+}
