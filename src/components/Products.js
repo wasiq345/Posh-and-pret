@@ -100,7 +100,7 @@ export default function Products({ onAddToCart }) {
   const [size, setSize] = useState('');
 const [sizeError, setSizeError] = useState(false);
 
-const largerSizes = ['28', '30', '32'];
+const largerSizes = ['26', '28', '30', '32'];
 const activePrice = size && largerSizes.includes(size)
   ? modalProduct?.priceLarge
   : modalProduct?.price;
