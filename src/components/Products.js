@@ -9,6 +9,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Shirt & Banarsi Shahi Patiala (Muted Green)',
     description: 'Chiffon Shirt & Banarsi Shahi Patiala with golden lace work',
     price: 2500,
+    originalPrice: 3800,
     priceLarge: 3000,
     tag: 'Bestseller',
   },
@@ -19,6 +20,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Muted Peach)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 3000,
+    originalPrice: 4500,
     priceLarge: 3500,
     tag: 'New',
   },
@@ -29,7 +31,10 @@ const PRODUCTS = [
     fullName: 'Soft RawSilk Lehnga Choli',
     description: 'Soft RawSilk lenga choli with golden gota mirror embroidery along with fancy lace',
     price: 3000,
+    originalPrice: 4500,
     priceLarge: 4000, //5000
+    priceXL: 5000, 
+    sizes: ['18','20','22','24','26','28','30','32','34','36','38'],
     tag: '',
   },
   {
@@ -39,6 +44,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Navy Blue)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 3000,
+    originalPrice: 4500,
     priceLarge: 3500,
     tag: '',
   },
@@ -49,6 +55,7 @@ const PRODUCTS = [
     fullName: 'Chiffon Gharara & Shirt (Fuchsia Pink)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
     price: 3000,
+    originalPrice: 4500,
     priceLarge: 3500,
     tag: 'Popular',
   },
@@ -88,7 +95,14 @@ function ProductCard({ product, onOpen }) {
       <div className="product-info">
         <h3 className="product-name">{product.name}</h3>
         <p className="product-desc">{product.description}</p>
-        <p className="product-price">PKR {product.price.toLocaleString()}</p>
+        <p className="product-price">
+        {product.originalPrice && (
+          <span className="price-original">PKR {product.originalPrice.toLocaleString()}</span>
+        )}
+        <span className={product.originalPrice ? 'price-sale' : ''}>
+          PKR {product.price.toLocaleString()}
+        </span>
+      </p>
       </div>
     </div>
   );
@@ -100,10 +114,21 @@ export default function Products({ onAddToCart }) {
   const [size, setSize] = useState('');
 const [sizeError, setSizeError] = useState(false);
 
-const largerSizes = ['26', '28', '30', '32'];
-const activePrice = size && largerSizes.includes(size)
-  ? modalProduct?.priceLarge
+const smallSizes  = ['18','20','22','24'];
+const medSizes    = ['26','28','30','32'];
+const largeSizes  = ['34','36','38'];
+
+const activePrice = size && largeSizes.includes(size) && modalProduct?.priceXL
+  ? modalProduct.priceXL
+  : size && medSizes.includes(size) && modalProduct?.priceLarge
+  ? modalProduct.priceLarge
   : modalProduct?.price;
+
+const priceSizeLabel = size
+  ? largeSizes.includes(size)  ? '(Size 34–38)'
+  : medSizes.includes(size)    ? '(Size 26–32)'
+  : '(Size 18–24)'
+  : '';
 
   const openModal = (product) => {
     setModalProduct(product);
@@ -187,13 +212,18 @@ const activePrice = size && largerSizes.includes(size)
               <div className="modal-details">
                 <h2 className="modal-title">{modalProduct.fullName}</h2>
                 <p className="modal-price">
+                {modalProduct.originalPrice && (
+                  <span className="price-original">PKR {modalProduct.originalPrice.toLocaleString()}</span>
+                )}
+                <span className={modalProduct.originalPrice ? 'price-sale' : ''}>
                   PKR {(activePrice || modalProduct.price).toLocaleString()}
-                  {size && largerSizes.includes(size) && (
-                    <span style={{ fontSize: '0.75rem', color: 'var(--muted)', marginLeft: '0.5rem' }}>
-                      (Size 28–32)
-                    </span>
-                  )}
-                </p>
+                </span>
+                {size && (
+              <span style={{ fontSize: '0.75rem', color: 'var(--muted)', marginLeft: '0.5rem' }}>
+                {priceSizeLabel}
+              </span>
+              )}
+              </p>
                 <p className="modal-desc">{modalProduct.description}</p>
 
                 <div className="modal-size-section">
@@ -201,7 +231,7 @@ const activePrice = size && largerSizes.includes(size)
                     Select Size <span className="size-required">*</span>
                   </label>
                   <div className="size-grid">
-                    {['18','20','22','24','26','28','30','32'].map((s) => (
+                    {(modalProduct.sizes || ['18','20','22','24','26','28','30','32']).map((s) => (
                       <button
                         key={s}
                         className={`size-btn ${size === s ? 'active' : ''}`}

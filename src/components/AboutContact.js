@@ -35,6 +35,7 @@ export function About() {
             From delicate details to luxurious designs, every outfit is made to make your special
             moments feel even more magical. Each piece is a labour of love — stitched with
             tradition and finished with a modern touch.
+            Established since 1995
           </p>
           <div className="about-stats">
             <div className="stat">

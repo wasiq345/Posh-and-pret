@@ -465,3 +465,16 @@
     padding: 0 1rem;
   }
 }
+
+
+.price-original {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-right: 0.4rem;
+}
+
+.price-sale {
+  color: #c0392b;
+  font-weight: 500;
+}
