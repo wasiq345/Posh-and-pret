@@ -19,7 +19,7 @@ export default function Hero() {
     <section id="home" className="hero" ref={heroRef}>
       <div className="hero-bg-pattern"></div>
       <div className="hero-content">
-        <div className="hero-badge">New Collection 2025</div>
+        <div className="hero-badge">New Collection 2026</div>
         <h1 className="hero-title">
           Designed To Make<br />
           <em>You Feel Like</em><br />
