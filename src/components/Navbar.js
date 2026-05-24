@@ -24,7 +24,7 @@ export default function Navbar({ cartCount, onCartClick }) {
           <div className="logo-emblem">P</div>
           <div className="logo-text">
             <span className="logo-main">Posh & Pret</span>
-            <span className="logo-sub"></span>
+            <span className="logo-sub">EST. 1995</span>
           </div>
         </div>
 

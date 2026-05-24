@@ -18,8 +18,8 @@ const PRODUCTS = [
     name: 'Chiffon Gharara & Shirt',
     fullName: 'Chiffon Gharara & Shirt (Muted Peach)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
-    price: 3200,
-    priceLarge: 3800,
+    price: 3000,
+    priceLarge: 3500,
     tag: 'New',
   },
   {
@@ -28,8 +28,8 @@ const PRODUCTS = [
     name: 'Soft RawSilk Lehnga Choli',
     fullName: 'Soft RawSilk Lehnga Choli',
     description: 'Soft RawSilk lenga choli with golden gota mirror embroidery along with fancy lace',
-    price: 1500,
-    priceLarge: 2500,
+    price: 3000,
+    priceLarge: 4000, //5000
     tag: '',
   },
   {
@@ -38,8 +38,8 @@ const PRODUCTS = [
     name: 'Chiffon Gharara & Shirt',
     fullName: 'Chiffon Gharara & Shirt (Navy Blue)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
-    price: 2800,
-    priceLarge: 3200,
+    price: 3000,
+    priceLarge: 3500,
     tag: '',
   },
   {
@@ -48,8 +48,8 @@ const PRODUCTS = [
     name: 'Chiffon Gharara & Shirt',
     fullName: 'Chiffon Gharara & Shirt (Fuchsia Pink)',
     description: 'Chiffon Gharara & Shirt with lining & silver embroidery along with silver stone handwork',
-    price: 3500,
-    priceLarge: 4000,
+    price: 3000,
+    priceLarge: 3500,
     tag: 'Popular',
   },
 ];
