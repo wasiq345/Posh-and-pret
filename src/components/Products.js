@@ -59,6 +59,42 @@ const PRODUCTS = [
     priceLarge: 3500,
     tag: 'Popular',
   },
+  {
+    id: 6,
+    images: ['products/heer_1.jpeg'],
+    name: 'Satin Silk Kurti & Shamoz Silk Lacha',
+    fullName: 'Satin Silk Kurti & Shamoz Silk Lacha (Hot pink & navy Blue)',
+    description: 'Satin Silk Kurti & Shamoz Silk Lacha stitched with golden Indian lace gota & dori tassels',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['14','16','18','20','22','24','26','30','32','34'], // small = 2000, medium = 2500, large = 3000
+     sizeTiers: {
+    small:  ['14','16','18'],   // uses price
+    medium: ['20','22','24','26'],                  // uses priceLarge
+    large:  ['30','32','34'],             // uses priceXL
+    },
+    tag: 'New',
+  },
+  {
+    id: 7,
+    images: ['products/heer_2.jpeg'],
+    name: 'Satin Silk Kurti & Shamoz Silk Lacha',
+    fullName: 'Satin Silk Kurti & Shamoz Silk Lacha (Ruby red & Emerald Green)',
+    description: 'Satin Silk Kurti & Shamoz Silk Lacha stitched with golden Indian lace gota & dori tassels',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['14','16','18','20','22','24','26','30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['14','16','18'],   // uses price
+    medium: ['20','22','24','26'],                  // uses priceLarge
+    large:  ['30','32','34'],             // uses priceXL
+  },
+    tag: 'New',
+  },
 ];
 
 function ProductCard({ product, onOpen }) {
@@ -114,20 +150,22 @@ export default function Products({ onAddToCart }) {
   const [size, setSize] = useState('');
 const [sizeError, setSizeError] = useState(false);
 
-const smallSizes  = ['18','20','22','24'];
-const medSizes    = ['26','28','30','32'];
-const largeSizes  = ['34','36','38'];
+const tiers = modalProduct?.sizeTiers || {
+  small:  ['18','20','22','24'],
+  medium: ['26','28','30','32'],
+  large:  ['34','36','38'],
+};
 
-const activePrice = size && largeSizes.includes(size) && modalProduct?.priceXL
+const activePrice = size && tiers.large?.includes(size) && modalProduct?.priceXL
   ? modalProduct.priceXL
-  : size && medSizes.includes(size) && modalProduct?.priceLarge
+  : size && tiers.medium?.includes(size) && modalProduct?.priceLarge
   ? modalProduct.priceLarge
   : modalProduct?.price;
 
 const priceSizeLabel = size
-  ? largeSizes.includes(size)  ? '(Size 34–38)'
-  : medSizes.includes(size)    ? '(Size 26–32)'
-  : '(Size 18–24)'
+  ? tiers.large?.includes(size)  ? `(Size ${tiers.large[0]}–${tiers.large[tiers.large.length-1]})`
+  : tiers.medium?.includes(size) ? `(Size ${tiers.medium[0]}–${tiers.medium[tiers.medium.length-1]})`
+  : `(Size ${tiers.small[0]}–${tiers.small[tiers.small.length-1]})`
   : '';
 
   const openModal = (product) => {
