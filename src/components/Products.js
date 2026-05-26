@@ -69,11 +69,11 @@ const PRODUCTS = [
     originalPrice: 3500,
     priceLarge: 2500,
     priceXL: 3000,
-    sizes: ['14','16','18','20','22','24','26','30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizes: ['14','16','18','20','22','24','26','28', '30','32','34'], // small = 2000, medium = 2500, large = 3000
      sizeTiers: {
     small:  ['14','16','18'],   // uses price
     medium: ['20','22','24','26'],                  // uses priceLarge
-    large:  ['30','32','34'],             // uses priceXL
+    large:  ['28', '30','32','34'],             // uses priceXL
     },
     tag: 'New',
   },
@@ -87,13 +87,67 @@ const PRODUCTS = [
     originalPrice: 3500,
     priceLarge: 2500,
     priceXL: 3000,
-    sizes: ['14','16','18','20','22','24','26','30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizes: ['14','16','18','20','22','24','26','28', '30','32','34'], // small = 2000, medium = 2500, large = 3000
     sizeTiers: {
     small:  ['14','16','18'],   // uses price
     medium: ['20','22','24','26'],                  // uses priceLarge
-    large:  ['30','32','34'],             // uses priceXL
+    large:  ['28', '30','32','34'],             // uses priceXL
   },
     tag: 'New',
+  },
+  {
+    id: 8,
+    images: ['products/naaz_1.jpeg'],
+    name: 'Cotton Sharara Set',
+    fullName: 'Cotton Sharara Set (Hot Pink)',
+    description: 'Short Cotton kurti with Cotton lawn sharara set designed with golden Indian lace along with golden stone handwork',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['14','16','18','20','22','24','26','28', '30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['14','16','18', '20'],   // uses price
+    medium: ['22','24','26'],                  // uses priceLarge
+    large:  ['28', '30','32','34'],             // uses priceXL
+  },
+    tag: 'Trending',
+  },
+  {
+    id: 9,
+    images: ['products/naaz_2.jpeg'],
+    name: 'Cotton Sharara Set',
+    fullName: 'Cotton Sharara Set (Kachi mehndi color)',
+    description: 'Short Cotton kurti with Cotton lawn sharara set designed with golden Indian lace along with golden stone handwork',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['14','16','18','20','22','24','26','28', '30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['14','16','18', '20'],   // uses price
+    medium: ['22','24','26'],                  // uses priceLarge
+    large:  ['28', '30','32','34'],             // uses priceXL
+  },
+    tag: 'Trending',
+  },
+  {
+    id: 10,
+    images: ['products/naaz_3.jpeg'],
+    name: 'Cotton Sharara Set',
+    fullName: 'Cotton Sharara Set (Peacock blue)',
+    description: 'Short Cotton kurti with Cotton lawn sharara set designed with golden Indian lace along with golden stone handwork',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['14','16','18','20','22','24','26', '28', '30','32','34'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['14','16','18', '20'],   // uses price
+    medium: ['22','24','26'],                  // uses priceLarge
+    large:  ['28', '30','32','34'],             // uses priceXL
+  },
+    tag: 'Trending',
   },
 ];
 
