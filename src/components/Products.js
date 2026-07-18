@@ -2,17 +2,17 @@ import React, { useState, useEffect, useRef } from 'react';
 import './Products.css';
 
 const PRODUCTS = [
-  {
-    id: 1,
-    images: ['products/mini_1.jpeg'],
-    name: 'Chiffon Shirt & Banarsi Shahi Patiala',
-    fullName: 'Chiffon Shirt & Banarsi Shahi Patiala (Muted Green)',
-    description: 'Chiffon Shirt & Banarsi Shahi Patiala with golden lace work',
-    price: 2500,
-    originalPrice: 3800,
-    priceLarge: 3000,
-    tag: 'Bestseller',
-  },
+  // {
+  //   id: 1,
+  //   images: ['products/mini_1.jpeg'],
+  //   name: 'Chiffon Shirt & Banarsi Shahi Patiala',
+  //   fullName: 'Chiffon Shirt & Banarsi Shahi Patiala (Muted Green)',
+  //   description: 'Chiffon Shirt & Banarsi Shahi Patiala with golden lace work',
+  //   price: 2500,
+  //   originalPrice: 3800,
+  //   priceLarge: 3000,
+  //   tag: 'Bestseller',
+  // },
   {
     id: 2,
     images: ['products/peach_2.jpeg', 'products/peach_1.jpeg'],
@@ -148,6 +148,42 @@ const PRODUCTS = [
     large:  ['28', '30','32','34'],             // uses priceXL
   },
     tag: 'Trending',
+  },
+  {
+    id: 11,
+    images: ['products/kinaari_1y.jpeg'],
+    name: 'Gota Kinaari Gharara Set',
+    fullName: 'Gota Kinaari Gharara Set (MariGold Yellow)',
+    description: 'Katan Silk Kurti and Gharara Stitched With Golden Indian Gota',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['18','20','22','24','26', '28', '30','32','34', '36'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['18', '20', '22', '24'],   // uses price
+    medium: ['26', '28', '30'],                  // uses priceLarge
+    large:  ['32','34', '36'],             // uses priceXL
+  },
+    tag: 'New',
+  },
+  {
+    id: 12,
+    images: ['products/kinaari_2g.jpeg', 'products/kinaari_3g.jpeg'],
+    name: 'Gota Kinaari Gharara Set',
+    fullName: 'Gota Kinaari Gharara Set (Emerald Green)',
+    description: 'Katan Silk Kurti and Gharara Stitched With Golden Indian Gota',
+    price: 2000,
+    originalPrice: 3500,
+    priceLarge: 2500,
+    priceXL: 3000,
+    sizes: ['18','20','22','24','26', '28', '30','32','34', '36'], // small = 2000, medium = 2500, large = 3000
+    sizeTiers: {
+    small:  ['18', '20', '22', '24'],   // uses price
+    medium: ['26', '28', '30'],                  // uses priceLarge
+    large:  ['32','34', '36'],             // uses priceXL
+  },
+    tag: 'New',
   },
 ];
 
