@@ -169,7 +169,7 @@ const PRODUCTS = [
   },
   {
     id: 12,
-    images: ['products/kinaari_2g.jpeg', 'products/kinaari_3g.jpeg'],
+    images: ['products/kinaari_1g.jpeg'],
     name: 'Gota Kinaari Gharara Set',
     fullName: 'Gota Kinaari Gharara Set (Emerald Green)',
     description: 'Katan Silk Kurti and Gharara Stitched With Golden Indian Gota',
